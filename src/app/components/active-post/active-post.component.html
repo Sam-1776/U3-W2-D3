@@ -1,0 +1,27 @@
+<div class="container mt-3">
+  <div *ngFor="let post of posts">
+    <div *ngIf="post.active">
+      <div
+        class="card mt-2"
+        [ngClass]="{
+                'text-bg-dark': post.type === 'politic' ,
+                'text-bg-primary': post.type === 'education' ,
+                'text-bg-warning': post.type === 'news' 
+                }"
+      >
+        <div class="card-header">Post</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text">{{ post.body }}</p>
+          <button class="btn"
+          [ngClass]="{
+            'btn-outline-light': post.type === 'politic' || post.type === 'education',
+            'btn-outline-dark': post.type === 'news' 
+            }"
+            (click)="change(post.id, false)"
+          >DISATTIVA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
