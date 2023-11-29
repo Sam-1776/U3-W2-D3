@@ -12,9 +12,9 @@ export class PostsService {
 
   async modPost(x: number, y: boolean) {
     return (
-      await fetch('../assets/db.json/' + x, {
+      await fetch('../assets/db.json/' + x , {
         method: 'PUT',
-        body: JSON.stringify({ "active": y }),
+        body: JSON.stringify({ active: y }),
         headers: {
           'Content-Type': 'application/json',
         },
